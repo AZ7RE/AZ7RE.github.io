@@ -35,7 +35,7 @@
   <style type="text/css">
     
     #container.show {
-      background: linear-gradient(200deg,#a0cfe4,#e8c37e);
+      background: linear-gradient(200deg,#675e8a,#a090bd,#c499ca);
     }
   </style>
   
@@ -87,10 +87,6 @@
 				
 			
 				
-					<a q-on="click: openSlider(e, 'friends')" href="javascript:void(0)">友链</a>
-				
-			
-				
 					<a q-on="click: openSlider(e, 'aboutme')" href="javascript:void(0)">关于我</a>
 				
 			
@@ -98,7 +94,7 @@
 		<nav class="header-nav">
 		
 		</nav>
-	</header>		
+	</header>
 </div>
 
     </div>
@@ -242,8 +238,8 @@
 <nav id="article-nav">
   
   
-    <a href="/2021/02/16/test/" id="article-nav-older" class="article-nav-link-wrap">
-      <div class="article-nav-title">test</div>
+    <a href="/2021/02/17/Vue%E5%9F%BA%E7%A1%80%E8%AF%AD%E6%B3%95/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">Vue基础语法</div>
       <i class="icon-circle-right"></i>
     </a>
   
@@ -263,8 +259,34 @@
         </div>
         
         
+            <p class="show-toc-btn" id="show-toc-btn" onclick="showToc();" style="display:none">
+            <span class="btn-bg"></span>
+            <span class="btn-text">文章导航</span>
+            </p>
+            <div id="toc-article" class="toc-article">
+                <span id="toc-close" class="toc-close" title="隐藏导航" onclick="showBtn();">×</span>
+                <strong class="toc-title">文章目录</strong>
+                <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%BF%99%E6%98%AF%E6%88%91%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E9%9A%8F%E7%AC%94"><span class="toc-text">这是我的第一篇随笔</span></a></li></ol>
+           </div>
+           <script type="text/javascript">
+            function showToc(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+
+                toc_article.setAttribute("style","display:block");
+                show_toc_btn.setAttribute("style","display:none");
+                };
+            function showBtn(){
+                var toc_article = document.getElementById("toc-article");
+                var show_toc_btn = document.getElementById("show-toc-btn");
+                toc_article.setAttribute("style","display:none");
+                show_toc_btn.setAttribute("style","display:block");
+                };
+           </script>
+        
     </div>
 </aside>
+
 
 
 
@@ -310,7 +332,7 @@
 		isTag: false,
 		isCategory: false,
 		open_in_new: true,
-		toc_hide_index: true,
+		toc_hide_index: false,
 		root: "/",
 		innerArchive: true,
 		showTags: true
@@ -337,25 +359,17 @@
       
       
     
-      
-      
-      
-    
     
 
     <ul style="width: 70%">
     
     
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'innerArchive')"><a href="javascript:void(0)" q-class="active:innerArchive">所有文章</a></li>
       
         
       
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'friends')"><a href="javascript:void(0)" q-class="active:friends">友链</a></li>
-      
-        
-      
-      <li style="width: 33.333333333333336%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
+      <li style="width: 50%" q-on="click: openSlider(e, 'aboutme')"><a href="javascript:void(0)" q-class="active:aboutme">关于我</a></li>
       
         
     </ul>
@@ -376,11 +390,19 @@
           <ul class="article-tag-list" q-show="showTags">
              
               <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color5">test</a>
+              </li>
+             
+              <li class="article-tag-list-item">
                 <a href="javascript:void(0)" class="js-tag color3">随笔</a>
               </li>
              
               <li class="article-tag-list-item">
-                <a href="javascript:void(0)" class="js-tag color5">test</a>
+                <a href="javascript:void(0)" class="js-tag color4">vue</a>
+              </li>
+             
+              <li class="article-tag-list-item">
+                <a href="javascript:void(0)" class="js-tag color3">前端</a>
               </li>
             
             <div class="clearfix"></div>
@@ -426,10 +448,6 @@
     	</section>
     
 
-    
-    	<section class="tools-section tools-section-friends" q-show="friends">
-  		
-    	</section>
     
 
     
@@ -549,18 +567,18 @@
       jsonPath: modelJsonPath
     },
     display: {
-       position: "right", 
+       position: "left", 
        width: 145, 
        height: 315, 
-       hOffset: 50, 
       
+       vOffset: -80 
     },
     mobile: {
        show: false, 
        scale: 0.6 
     },
     react: {
-       opacity: 0.8 
+       opacity: 0.9 
     }
   })
 
